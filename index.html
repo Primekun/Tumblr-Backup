@@ -53,7 +53,7 @@
                 $("#blog-form").hide();
                 $("#already-done").hide();
                 $("#ongoing").hide();
-                var conn = new SockJS("http://tumblr-backup.fugiman.com/sockjs/");
+                var conn = new SockJS(location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + "/sockjs/");
                 var done = false;
                 conn.onopen  = function() {
                     $("#message").text("Connected to archival server");
@@ -88,7 +88,7 @@
                 var blogs = {};
                 var timer = null;
                 $("#main").html("");
-                var conn = new SockJS("http://tumblr-backup.fugiman.com/sockjs/");
+                var conn = new SockJS(location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + "/sockjs/");
                 conn.onopen  = function() {
                     $("#main").css("background", "#BCE8F1");
                     conn.send(JSON.stringify({"show_all":true}));
